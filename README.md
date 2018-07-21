@@ -1,10 +1,6 @@
 # ActiveDirectoryTools
 > A set of pre wrote and precompiled common active directory tasks which can be used in your projects.  
 
-[![NPM Version][npm-image]][npm-url]
-[![Build Status][travis-image]][travis-url]
-[![Downloads Stats][npm-downloads]][npm-url]
-
 One to two paragraph statement about your product and what it does.
 
 ![](header.png)
