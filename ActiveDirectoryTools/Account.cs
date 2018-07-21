@@ -14,7 +14,7 @@ namespace ActiveDirectoryTools
         /// </summary>
         /// <param name="username">Enter the username.</param>
         /// <param name="password">Enter the users new password.</param>
-        /// <param name="expireNow">User reset password at next logon.</param>
+        /// <param name="expireNow">User must reset password at next logon.</param>
         public void PasswordReset(string username, string password, bool expireNow = true)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))

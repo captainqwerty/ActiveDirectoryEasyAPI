@@ -48,5 +48,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ActiveDirectoryTools\ActiveDirectoryTools.csproj">
+      <Project>{e09573bd-3ced-4b25-bb66-7d64fa3c3ec7}</Project>
+      <Name>ActiveDirectoryTools</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
