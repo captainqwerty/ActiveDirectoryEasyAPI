@@ -37,5 +37,37 @@ namespace ActiveDirectoryTools
                 }
             }
         }
+
+        public void UnlockAccount(string username)
+        {
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            {
+                using (var user = UserPrincipal.FindByIdentity(principalContext, username))
+                {
+                    if (user != null)
+                    {
+                        user.UnlockAccount();
+                    }
+                }
+            }
+        }
+
+        public DateTime? GetLastLogOn(string username)
+        {
+            DateTime? lastLogon = null;
+
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            {
+                using (var user = UserPrincipal.FindByIdentity(principalContext, username))
+                {
+                    if (user != null)
+                    {
+                        lastLogon = user.LastLogon;
+                    }
+                }
+            }
+
+            return lastLogon;
+        }
     }
 }
