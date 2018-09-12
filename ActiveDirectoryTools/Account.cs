@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -84,8 +85,20 @@ namespace ActiveDirectoryTools
                     Description = user.Description,
                     LockedOut = user.IsAccountLockedOut(),
                     LastLogonDateTime = user.LastLogon,
+                    EmailAddress = user.EmailAddress,
                     Sid = user.Sid
                 };
+
+                using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
+                {
+                    if (directoryEntry == null) return userAccount;
+
+                    userAccount.Company = directoryEntry.Properties["company"].Value.ToString();
+                    userAccount.Department = directoryEntry.Properties["department"].Value.ToString();
+                    userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
+                    userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
+                    userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
+                }
 
                 return userAccount;
             }

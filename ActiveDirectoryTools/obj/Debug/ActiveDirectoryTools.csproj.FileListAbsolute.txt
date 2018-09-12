@@ -1,0 +1,6 @@
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\bin\Debug\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\bin\Debug\ActiveDirectoryTools.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.csprojAssemblyReference.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.csproj.CoreCompileInputs.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.pdb

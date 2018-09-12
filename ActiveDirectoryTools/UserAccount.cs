@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Principal;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ActiveDirectoryTools
 {
@@ -16,8 +12,11 @@ namespace ActiveDirectoryTools
         public string Office { get; set; }
         public string EmailAddress { get; set; }
         public string JobTitle { get; set; }
+        public string Company { get; set; }
+        public string Department { get; set; }
         public DateTime? LastLogonDateTime { get; set; }
         public bool LockedOut { get; set; }
         public SecurityIdentifier Sid { get; set; }
+        public DateTime? WhenCreated { get; set; }
     }
 }

@@ -1,0 +1,10 @@
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.exe.config
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.exe
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ActiveDirectoryTools.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csprojAssemblyReference.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.exe
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.pdb
