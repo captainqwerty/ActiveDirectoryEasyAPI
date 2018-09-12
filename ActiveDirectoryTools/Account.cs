@@ -15,7 +15,7 @@ namespace ActiveDirectoryTools
         /// <param name="username">Enter the username.</param>
         /// <param name="password">Enter the users new password.</param>
         /// <param name="expireNow">User must reset password at next logon.</param>
-        public void PasswordReset(string username, string password, bool expireNow = true)
+        public void SetUsersPassword(string username, string password, bool expireNow = true)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
@@ -68,6 +68,27 @@ namespace ActiveDirectoryTools
             }
 
             return lastLogon;
+        }
+
+        public UserAccount GetUserAccountDetails(string username)
+        {
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            using (var user = UserPrincipal.FindByIdentity(principalContext, username))
+            {
+                if (user == null) return null;
+
+                var userAccount = new UserAccount()
+                {
+                    FirstName = user.GivenName,
+                    LastName = user.Surname,
+                    Description = user.Description,
+                    LockedOut = user.IsAccountLockedOut(),
+                    LastLogonDateTime = user.LastLogon,
+                    Sid = user.Sid
+                };
+
+                return userAccount;
+            }
         }
     }
 }
