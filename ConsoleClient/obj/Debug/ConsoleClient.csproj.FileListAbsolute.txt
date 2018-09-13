@@ -8,3 +8,13 @@ C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\Co
 C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
 C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.exe
 C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.pdb
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.exe.config
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.exe
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ConsoleClient.pdb
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ActiveDirectoryTools.dll
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Debug\ActiveDirectoryTools.pdb
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csprojAssemblyReference.cache
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csproj.CoreCompileInputs.cache
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.exe
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Debug\ConsoleClient.pdb

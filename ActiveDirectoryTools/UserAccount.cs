@@ -18,5 +18,6 @@ namespace ActiveDirectoryTools
         public bool LockedOut { get; set; }
         public SecurityIdentifier Sid { get; set; }
         public DateTime? WhenCreated { get; set; }
+        public byte[] thumbnailPhoto { get; set; }
     }
 }

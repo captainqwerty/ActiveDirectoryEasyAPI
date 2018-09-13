@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.DirectoryServices;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.DirectoryServices.AccountManagement;
 
 namespace ActiveDirectoryTools
@@ -36,6 +32,33 @@ namespace ActiveDirectoryTools
                         // Throw error
                     }
                 }
+            }
+        }
+
+        public byte[] GetThumbnailPhoto(string username)
+        {
+            byte[] bytes = null;
+
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            {
+                var userPrincipal = new UserPrincipal(principalContext)
+                {
+                    SamAccountName = username
+                };
+
+                var principalSearcher = new PrincipalSearcher
+                {
+                    QueryFilter = userPrincipal
+                };
+
+                var result = principalSearcher.FindOne();
+
+                if (result == null) return null;
+                
+                using (var user = result.GetUnderlyingObject() as DirectoryEntry)
+                {
+                    return bytes = user.Properties["thumbnailPhoto"][0] as byte[];
+                } 
             }
         }
 
@@ -98,6 +121,7 @@ namespace ActiveDirectoryTools
                     userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
                     userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
+                    userAccount.thumbnailPhoto = directoryEntry.Properties["thumbnailPhoto"][0] as byte[];
                 }
 
                 return userAccount;
