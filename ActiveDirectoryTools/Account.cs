@@ -7,7 +7,7 @@ namespace ActiveDirectoryTools
     public class Account
     {
         /// <summary>
-        /// Reset an account password.
+        /// Reset a user account password.
         /// </summary>
         /// <param name="username">Enter the username.</param>
         /// <param name="password">Enter the users new password.</param>
@@ -27,14 +27,15 @@ namespace ActiveDirectoryTools
                             user.ExpirePasswordNow();
                         }
                     }
-                    else
-                    {
-                        // Throw error
-                    }
                 }
             }
         }
 
+        /// <summary>
+        /// Retrieve the users thumbnail photo.
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>Thumbnail phoot in bytes</returns>
         public byte[] GetThumbnailPhoto(string username)
         {
             byte[] bytes = null;
@@ -57,7 +58,7 @@ namespace ActiveDirectoryTools
                 
                 using (var user = result.GetUnderlyingObject() as DirectoryEntry)
                 {
-                    return bytes = user.Properties["thumbnailPhoto"][0] as byte[];
+                    return bytes = user.Properties["thumbnailPhoto"].Value as byte[];
                 } 
             }
         }
@@ -68,10 +69,7 @@ namespace ActiveDirectoryTools
             {
                 using (var user = UserPrincipal.FindByIdentity(principalContext, username))
                 {
-                    if (user != null)
-                    {
-                        user.UnlockAccount();
-                    }
+                    user?.UnlockAccount();
                 }
             }
         }
@@ -121,7 +119,7 @@ namespace ActiveDirectoryTools
                     userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
                     userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
-                    userAccount.thumbnailPhoto = directoryEntry.Properties["thumbnailPhoto"][0] as byte[];
+                    userAccount.thumbnailPhoto = directoryEntry.Properties["thumbnailPhoto"].Value as byte[];
                 }
 
                 return userAccount;
