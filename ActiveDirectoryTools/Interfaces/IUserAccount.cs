@@ -1,4 +1,4 @@
-﻿namespace ActiveDirectoryTools
+﻿namespace ActiveDirectoryTools.Interfaces
 {
     internal interface IUserAccount
     {

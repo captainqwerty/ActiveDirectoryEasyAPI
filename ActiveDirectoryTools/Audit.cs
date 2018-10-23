@@ -4,6 +4,7 @@ using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
@@ -30,11 +31,13 @@ namespace ActiveDirectoryTools
                     if (!user.IsAccountLockedOut()) continue;
 
                     lockedUsers.Add(accountTools.GetUserAccountDetails(user.UserPrincipalName));
-                    return lockedUsers;
+                    
                 }
-            }
 
-            return null;
+                lockedUsers.Sort();
+
+                return lockedUsers;
+            }
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
+using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
@@ -12,20 +13,19 @@ namespace ActiveDirectoryTools
         /// <param name="username">Enter the username.</param>
         /// <param name="password">Enter the users new password.</param>
         /// <param name="expireNow">User must reset password at next logon.</param>
-        public void SetUsersPassword(string username, string password, bool expireNow = true)
+        public void SetUsersPassword(string username, string password, bool expireNow = false)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
                 using (var user = UserPrincipal.FindByIdentity(principalContext, username))
                 {
-                    if (user != null)
-                    {
-                        user.SetPassword(password);
+                    if (user == null) return;
+                
+                    user.SetPassword(password);
 
-                        if(expireNow)
-                        {
-                            user.ExpirePasswordNow();
-                        }
+                    if(expireNow)
+                    {
+                        user.ExpirePasswordNow();
                     }
                 }
             }

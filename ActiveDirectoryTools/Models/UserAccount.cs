@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Security.Principal;
+using ActiveDirectoryTools.Interfaces;
 
-namespace ActiveDirectoryTools
+namespace ActiveDirectoryTools.Models
 {
     public class UserAccount : IUserAccount
     {
