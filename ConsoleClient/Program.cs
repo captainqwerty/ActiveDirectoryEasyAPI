@@ -19,7 +19,7 @@ namespace ConsoleClient
             //    Console.WriteLine(user.Username);
             //}
 
-            var account = new Account();
+            var account = new AccountTasks();
 
             account.SetUsersPassword("18TEnergus","BaconBacon123*");
             Console.WriteLine("Done");

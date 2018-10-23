@@ -1,0 +1,10 @@
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Release\ConsoleClient.exe.config
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Release\ConsoleClient.exe
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Release\ConsoleClient.pdb
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Release\ActiveDirectoryTools.dll
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\bin\Release\ActiveDirectoryTools.pdb
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.csprojAssemblyReference.cache
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.csproj.CoreCompileInputs.cache
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.csproj.CopyComplete
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.exe
+\\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.pdb

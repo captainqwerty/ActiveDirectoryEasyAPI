@@ -5,7 +5,7 @@ using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
-    public class Account
+    public class AccountTasks
     {
         /// <summary>
         /// Reset a user account password.

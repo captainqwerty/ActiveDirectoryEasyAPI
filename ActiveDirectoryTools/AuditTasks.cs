@@ -8,11 +8,11 @@ using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
-    public class Audit
+    public class AuditTasks
     {
         public List<UserAccount> GetAllLockedOutAccounts(string organisationalUnit)
         {
-            var accountTools = new Account();
+            var accountTools = new AccountTasks();
 
             var lockedUsers = new List<UserAccount>();
 
