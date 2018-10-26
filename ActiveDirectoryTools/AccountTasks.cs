@@ -8,11 +8,11 @@ namespace ActiveDirectoryTools
     public class AccountTasks
     {
         /// <summary>
-        /// Reset a user account password.
+        /// Reset a user account password. The account will also be unlocked if it is currently locked.
         /// </summary>
-        /// <param name="username">Enter the username.</param>
-        /// <param name="password">Enter the users new password.</param>
-        /// <param name="expireNow">User must reset password at next logon.</param>
+        /// <param name="username">The username</param>
+        /// <param name="password">Enter the users new password</param>
+        /// <param name="expireNow">Expire the password so the user must reset password at next logon?</param>
         public void SetUsersPassword(string username, string password, bool expireNow = false)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
@@ -21,6 +21,8 @@ namespace ActiveDirectoryTools
                 {
                     if (user == null) return;
                 
+                    user.UnlockAccount();
+
                     user.SetPassword(password);
 
                     if(expireNow)
@@ -34,7 +36,7 @@ namespace ActiveDirectoryTools
         /// <summary>
         /// Retrieve the users thumbnail photo.
         /// </summary>
-        /// <param name="username"></param>
+        /// <param name="username">The username of the account photo to retrieve</param>
         /// <returns>Thumbnail phoot in bytes</returns>
         public byte[] GetThumbnailPhoto(string username)
         {
@@ -63,6 +65,10 @@ namespace ActiveDirectoryTools
             }
         }
 
+        /// <summary>
+        /// Unlock a locked user account without resetting their password.
+        /// </summary>
+        /// <param name="username">Username of the locked account to be unlocked</param>
         public void UnlockAccount(string username)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
@@ -74,6 +80,11 @@ namespace ActiveDirectoryTools
             }
         }
 
+        /// <summary>
+        /// Gets the users last log on in a DateTime format.
+        /// </summary>
+        /// <param name="username">Username to get the last logon time stamp</param>
+        /// <returns></returns>
         public DateTime? GetLastLogOn(string username)
         {
             DateTime? lastLogon = null;
@@ -92,6 +103,11 @@ namespace ActiveDirectoryTools
             return lastLogon;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="username"></param>
+        /// <returns>A UserAccount model</returns>
         public UserAccount GetUserAccountDetails(string username)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
