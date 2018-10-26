@@ -4,14 +4,15 @@ using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
-    public class Audit
+    public class AuditTasks
     {
         public List<UserAccount> GetAllLockedOutAccounts(string organisationalUnit)
         {
-            var accountTools = new Account();
+            var accountTools = new AccountTasks();
 
             var lockedUsers = new List<UserAccount>();
 
@@ -30,11 +31,13 @@ namespace ActiveDirectoryTools
                     if (!user.IsAccountLockedOut()) continue;
 
                     lockedUsers.Add(accountTools.GetUserAccountDetails(user.UserPrincipalName));
-                    return lockedUsers;
+                    
                 }
-            }
 
-            return null;
+                lockedUsers.Sort();
+
+                return lockedUsers;
+            }
         }
     }
 }
