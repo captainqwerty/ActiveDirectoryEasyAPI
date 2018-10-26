@@ -107,7 +107,8 @@ namespace ActiveDirectoryTools
                     LockedOut = user.IsAccountLockedOut(),
                     LastLogonDateTime = user.LastLogon,
                     EmailAddress = user.EmailAddress,
-                    Sid = user.Sid
+                    Sid = user.Sid,
+                    Username = user.SamAccountName
                 };
 
                 using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
