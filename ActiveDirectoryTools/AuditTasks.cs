@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.Linq;
 using System.Text;
@@ -38,6 +39,13 @@ namespace ActiveDirectoryTools
 
                 return lockedUsers;
             }
+        }
+
+        public bool DoesOrganisationalUnitExist(string organisationalUnit)
+        {
+            var organisationalUnitExists = DirectoryEntry.Exists("LDAP://" + organisationalUnit);
+
+            return organisationalUnitExists;
         }
     }
 }

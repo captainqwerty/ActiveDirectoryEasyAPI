@@ -10,20 +10,13 @@ namespace ConsoleClient
     {
         static void Main(string[] args)
         {
-            //var auditTool = new Audit();
+            var auditTool = new AuditTasks();
 
-            //var lockedOutAccounts = auditTool.GetAllLockedOutAccounts("OU=Lillyhall,OU=Students,OU=User Accounts,DC=gen2training,DC=co,DC=uk");
+            var doesItExist = auditTool.DoesOrganisationalUnitExist("OU=Lillyhall,OU=Students,OU=User Accounts,DC=gen2training,DC=co,DC=uk");
 
-            //foreach (var user in lockedOutAccounts)
-            //{
-            //    Console.WriteLine(user.Username);
-            //}
+            Console.Write(doesItExist);
 
-            var account = new AccountTasks();
-
-            account.SetUsersPassword("18TEnergus","BaconBacon123*");
-            Console.WriteLine("Done");
-            Console.ReadLine();
+            Console.ReadKey();
         }
     }
 }
