@@ -8,7 +8,7 @@ using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
-    class Group : IGroup
+    public class Group : IGroup
     {
         public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

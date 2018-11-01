@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using ActiveDirectoryTools.Models;
@@ -140,6 +141,42 @@ namespace ActiveDirectoryTools
                 }
 
                 return userAccount;
+            }
+        }
+
+        public Group GetGroupDetails(string groupName)
+        {
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
+            {
+                if (groupResult == null) return null;
+
+                var group = new Group
+                {
+                    Name = groupResult.Name,
+                    Description = groupResult.Description
+                };
+
+                return group;
+            }  
+        }
+
+        public IEnumerable<UserAccount> GetGroupMembers(string groupName)
+        {
+            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
+            {
+                if (groupResult == null) return null;
+
+                var groupResultMembers = groupResult.GetMembers();
+
+                var groupMembers = new List<UserAccount>();
+                foreach (var user in groupResultMembers)
+                {
+                    groupMembers.Add(GetUserAccountDetails(user.SamAccountName));
+                }
+
+                return groupMembers;
             }
         }
     }

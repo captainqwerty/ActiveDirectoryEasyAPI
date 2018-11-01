@@ -19,17 +19,15 @@ namespace ActiveDirectoryTools
 
             using (var context = new PrincipalContext(ContextType.Domain, "GEN2TRAINING", organisationalUnit))
             {
-                var qbeUser = new UserPrincipal(context);
+                var userPrincipal = new UserPrincipal(context);
+  
+                var search = new PrincipalSearcher(userPrincipal);
 
-                // create your principal searcher passing in the QBE principal    
-                var srch = new PrincipalSearcher(qbeUser);
-
-                // find all matches
-                foreach (var userPrincipal in srch.FindAll())
+                foreach (var result in search.FindAll())
                 {
-                    var user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, userPrincipal.SamAccountName);
+                    var user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, result.SamAccountName);
 
-                    if (!user.IsAccountLockedOut()) continue;
+                    if (user != null && !user.IsAccountLockedOut()) continue;
 
                     lockedUsers.Add(accountTools.GetUserAccountDetails(user.UserPrincipalName));
                     
