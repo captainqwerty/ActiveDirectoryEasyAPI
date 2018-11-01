@@ -42,7 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AccountTasks.cs" />
+    <Compile Include="GroupAccountTasks.cs" />
+    <Compile Include="UserAccountTasks.cs" />
     <Compile Include="AuditTasks.cs" />
     <Compile Include="Models\Group.cs" />
     <Compile Include="Interfaces\IGroup.cs" />

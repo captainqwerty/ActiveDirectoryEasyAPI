@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
@@ -13,11 +9,11 @@ namespace ActiveDirectoryTools
     {
         public List<UserAccount> GetAllLockedOutAccounts(string organisationalUnit)
         {
-            var accountTools = new AccountTasks();
+            var accountTools = new UserAccountTasks();
 
             var lockedUsers = new List<UserAccount>();
 
-            using (var context = new PrincipalContext(ContextType.Domain, "GEN2TRAINING", organisationalUnit))
+            using (var context = new PrincipalContext(ContextType.Domain, null, organisationalUnit))
             {
                 var userPrincipal = new UserPrincipal(context);
   

@@ -6,7 +6,7 @@ using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
-    public class AccountTasks
+    public class UserAccountTasks
     {
         /// <summary>
         /// Reset a user account password. The account will also be unlocked if it is currently locked.
@@ -138,45 +138,30 @@ namespace ActiveDirectoryTools
                     userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
                     userAccount.thumbnailPhoto = directoryEntry.Properties["thumbnailPhoto"].Value as byte[];
+                    // PROXY ADDRESS["proxyAddresses"] and is multi value strings
+
+                    //string username = "username";
+                    //string domain = "domain";
+
+                    //List<string> emailAddresses = new List<string>();
+
+                    //PrincipalContext domainContext = new PrincipalContext(ContextType.Domain, domain);
+                    //UserPrincipal user = UserPrincipal.FindByIdentity(domainContext, username);
+
+                    //// Add the "mail" entry
+                    //emailAddresses.Add(user.EmailAddress);
+
+                    //// Add the "proxyaddresses" entries.
+                    //PropertyCollection properties = ((DirectoryEntry)user.GetUnderlyingObject()).Properties;
+                    //foreach (object property in properties["proxyaddresses"])
+                    //{
+                    //    emailAddresses.Add(property.ToString());
+                    //}
+
+
                 }
 
                 return userAccount;
-            }
-        }
-
-        public Group GetGroupDetails(string groupName)
-        {
-            using (var principalContext = new PrincipalContext(ContextType.Domain))
-            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
-            {
-                if (groupResult == null) return null;
-
-                var group = new Group
-                {
-                    Name = groupResult.Name,
-                    Description = groupResult.Description
-                };
-
-                return group;
-            }  
-        }
-
-        public IEnumerable<UserAccount> GetGroupMembers(string groupName)
-        {
-            using (var principalContext = new PrincipalContext(ContextType.Domain))
-            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
-            {
-                if (groupResult == null) return null;
-
-                var groupResultMembers = groupResult.GetMembers();
-
-                var groupMembers = new List<UserAccount>();
-                foreach (var user in groupResultMembers)
-                {
-                    groupMembers.Add(GetUserAccountDetails(user.SamAccountName));
-                }
-
-                return groupMembers;
             }
         }
     }
