@@ -61,7 +61,7 @@ namespace ActiveDirectoryTools
                 
                 using (var user = result.GetUnderlyingObject() as DirectoryEntry)
                 {
-                    return bytes = user.Properties["thumbnailPhoto"].Value as byte[];
+                    return bytes = user.Properties["ThumbnailPhoto"].Value as byte[];
                 } 
             }
         }
@@ -125,7 +125,8 @@ namespace ActiveDirectoryTools
                     LastLogonDateTime = user.LastLogon,
                     EmailAddress = user.EmailAddress,
                     Sid = user.Sid,
-                    Username = user.SamAccountName
+                    Username = user.SamAccountName,
+                    DistinguishedName = user.DistinguishedName
                 };
 
                 using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
@@ -137,7 +138,7 @@ namespace ActiveDirectoryTools
                     userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
                     userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
-                    userAccount.thumbnailPhoto = directoryEntry.Properties["thumbnailPhoto"].Value as byte[];
+                    userAccount.ThumbnailPhoto = directoryEntry.Properties["ThumbnailPhoto"].Value as byte[];
                     // PROXY ADDRESS["proxyAddresses"] and is multi value strings
 
                     //string username = "username";
@@ -157,12 +158,24 @@ namespace ActiveDirectoryTools
                     //{
                     //    emailAddresses.Add(property.ToString());
                     //}
-
-
                 }
 
                 return userAccount;
             }
+        }
+
+        public void MoveToOrganisationalUnit(string username, string newOrganisationalUnit)
+        {
+            var auditTasks = new AuditTasks();
+            if (!auditTasks.DoesOrganisationalUnitExist(newOrganisationalUnit)) return;
+                  
+            var user = GetUserAccountDetails(username);
+
+            var originalLocation = new DirectoryEntry($"LDAP://{user.DistinguishedName}");
+            var newLocation = new DirectoryEntry($"LDAP://{newOrganisationalUnit}");
+            originalLocation.MoveTo(newLocation);
+            originalLocation.Close();
+            newLocation.Close();
         }
     }
 }
