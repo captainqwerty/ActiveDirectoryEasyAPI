@@ -43,6 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="GroupAccountTasks.cs" />
+    <Compile Include="Interfaces\IOrganisationalUnit.cs" />
+    <Compile Include="Models\OrganisationalUnit.cs" />
     <Compile Include="UserAccountTasks.cs" />
     <Compile Include="AuditTasks.cs" />
     <Compile Include="Models\Group.cs" />
