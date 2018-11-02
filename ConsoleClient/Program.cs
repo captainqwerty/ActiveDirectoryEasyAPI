@@ -12,8 +12,16 @@ namespace ConsoleClient
             var userAccountTasks = new UserAccountTasks();
             var groupAccountTasks = new GroupAccountTasks();
 
-            userAccountTasks.MoveToOrganisationalUnit("terry.testaccount", "OU=Sales,OU=Lillyhall,OU=Staff,OU=User Accounts,DC=gen2training,DC=co,DC=uk");
-            Console.WriteLine("Account moved");
+            //userAccountTasks.MoveToOrganisationalUnit("18Ttest", "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
+            //Console.WriteLine("Account moved");
+            //Console.ReadLine();
+
+            groupAccountTasks.RemoveUserFromGroup("18Ttest", "Role - Student");
+            Console.WriteLine("Removed from Group");
+
+            groupAccountTasks.AddUsertoGroup("18Ttest","Role - UTC Student");
+            Console.WriteLine("Added to Group");
+
             Console.ReadLine();
         }
     }

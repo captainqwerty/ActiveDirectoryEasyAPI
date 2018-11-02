@@ -52,7 +52,7 @@ namespace ActiveDirectoryTools
                 using (var pc = new PrincipalContext(ContextType.Domain))
                 {
                     var group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Add(pc, IdentityType.UserPrincipalName, username);
+                    group.Members.Add(pc, IdentityType.SamAccountName, username);
                     group.Save();
                 }
             }
@@ -69,7 +69,7 @@ namespace ActiveDirectoryTools
                 using (var pc = new PrincipalContext(ContextType.Domain))
                 {
                     var group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Remove(pc, IdentityType.UserPrincipalName, username);
+                    group.Members.Remove(pc, IdentityType.SamAccountName, username);
                     group.Save();
                 }
             }
