@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.DirectoryServices.AccountManagement;
+using System.Runtime.InteropServices.ComTypes;
 using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
@@ -46,12 +47,36 @@ namespace ActiveDirectoryTools
 
         public void AddUsertoGroup(string username, string groupName)
         {
-            // Add user to a group
+            try
+            {
+                using (var pc = new PrincipalContext(ContextType.Domain))
+                {
+                    var group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Add(pc, IdentityType.UserPrincipalName, username);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException e)
+            {
+                // Error
+            }
         }
 
         public void RemoveUserFromGroup(string username, string groupName)
         {
-            // Remove user from a group
+            try
+            {
+                using (var pc = new PrincipalContext(ContextType.Domain))
+                {
+                    var group = GroupPrincipal.FindByIdentity(pc, groupName);
+                    group.Members.Remove(pc, IdentityType.UserPrincipalName, username);
+                    group.Save();
+                }
+            }
+            catch (System.DirectoryServices.DirectoryServicesCOMException e)
+            {
+                // Error
+            }
         }
     }
 }
