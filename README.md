@@ -8,9 +8,9 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-.NET 3.5 or above
 
-[.NET Download Page](https://www.microsoft.com/net/download/dotnet-framework-runtime)
+
+[.NET 3.5 or above](https://www.microsoft.com/net/download/dotnet-framework-runtime)
 
 ### Installing
 
