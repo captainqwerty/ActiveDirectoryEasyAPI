@@ -15,11 +15,6 @@ namespace ConsoleClient
             var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
             Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
 
-            foreach (var proxyAddress in user.ProxyAddresses)
-            {
-                Console.WriteLine(proxyAddress);
-            }
-
             //userAccountTasks.UnlockAccount("18ttest");
             //Console.WriteLine("Account unlocked");
 
