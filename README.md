@@ -2,13 +2,16 @@
 
 This project contains libraries with quick to use methods for Active Directory to be used within other projects. 
 
+## Features
+
+Set users password 
+Unlock user account
+
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
 ### Prerequisites
-
-
 
 [.NET 3.5 or above](https://www.microsoft.com/net/download/dotnet-framework-runtime)
 
