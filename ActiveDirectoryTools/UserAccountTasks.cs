@@ -133,7 +133,12 @@ namespace ActiveDirectoryTools
                 {
                     if (directoryEntry == null) return userAccount;
 
-                    userAccount.Company = directoryEntry.Properties["company"].Value.ToString();
+                    var company = directoryEntry.Properties["company"].Value.ToString();
+                    if (!string.IsNullOrEmpty(company))
+                    {
+                        userAccount.Company = directoryEntry.Properties["company"].Value.ToString();
+                    }
+
                     userAccount.Department = directoryEntry.Properties["department"].Value.ToString();
                     userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
                     userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();

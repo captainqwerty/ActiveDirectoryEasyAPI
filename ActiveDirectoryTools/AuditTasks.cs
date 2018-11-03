@@ -7,13 +7,13 @@ namespace ActiveDirectoryTools
 {
     public class AuditTasks
     {
-        public List<UserAccount> GetAllLockedOutAccounts(string organisationalUnit)
+        public List<UserAccount> GetAllLockedOutAccounts()
         {
             var accountTools = new UserAccountTasks();
 
             var lockedUsers = new List<UserAccount>();
 
-            using (var context = new PrincipalContext(ContextType.Domain, null, organisationalUnit))
+            using (var context = new PrincipalContext(ContextType.Domain))
             {
                 var userPrincipal = new UserPrincipal(context);
   

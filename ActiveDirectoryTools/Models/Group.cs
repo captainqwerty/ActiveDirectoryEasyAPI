@@ -10,8 +10,8 @@ namespace ActiveDirectoryTools
 {
     public class Group : IGroup
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public string Description { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public IEnumerable<UserAccount> GroupMembers { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public IEnumerable<UserAccount> GroupMembers { get; set; }
     }
 }

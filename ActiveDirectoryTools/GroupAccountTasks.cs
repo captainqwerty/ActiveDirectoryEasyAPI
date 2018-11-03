@@ -20,6 +20,8 @@ namespace ActiveDirectoryTools
                     Description = groupResult.Description
                 };
 
+                group.GroupMembers = GetGroupMembers(groupName);
+
                 return group;
             }
         }
