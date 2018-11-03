@@ -1,5 +1,5 @@
 # ActiveDirectoryTools
-![Icon File](https://github.com/captainqwerty/ActiveDirectoryTools/blob/master/ActiveDirectoryTools/Resources/Icon.png) 
+
 This project contains libraries with quick to use methods for Active Directory to be used within other projects. 
 
 ## Features
