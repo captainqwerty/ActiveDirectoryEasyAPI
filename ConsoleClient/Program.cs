@@ -1,5 +1,4 @@
 ﻿using System;
-using System.DirectoryServices.ActiveDirectory;
 using ActiveDirectoryTools;
 
 namespace ConsoleClient
@@ -13,8 +12,13 @@ namespace ConsoleClient
             var userAccountTasks = new UserAccountTasks();
             var groupAccountTasks = new GroupAccountTasks();
 
-            //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
-            //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
+            var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
+            Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
+
+            foreach (var proxyAddress in user.ProxyAddresses)
+            {
+                Console.WriteLine(proxyAddress);
+            }
 
             //userAccountTasks.UnlockAccount("18ttest");
             //Console.WriteLine("Account unlocked");

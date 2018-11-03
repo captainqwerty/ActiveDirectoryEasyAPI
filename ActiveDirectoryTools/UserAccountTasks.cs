@@ -157,11 +157,11 @@ namespace ActiveDirectoryTools
                         userAccount.Office = physicalDeliveryOfficeName.ToString();
                     }
 
-                    var properties = ((DirectoryEntry)user.GetUnderlyingObject()).Properties;
-                    foreach (var property in properties["proxyaddresses"])
-                    {
-                        userAccount.ProxyAddresses.Add(property.ToString());
-                    }
+                    //var properties = directoryEntry.Properties["proxyAddresses"];
+                    //foreach (var property in properties)
+                    //{
+                    //    userAccount.ProxyAddresses.Add(property.ToString());
+                    //}
 
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
                     userAccount.ThumbnailPhoto = directoryEntry.Properties["ThumbnailPhoto"].Value as byte[];
