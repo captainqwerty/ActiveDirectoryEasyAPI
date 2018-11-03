@@ -61,7 +61,10 @@ Add additional notes about how to deploy this on a live system
 
 * **[captainqwerty](https://github.com/captainqwerty)** - *Initial work*
 
+## Acknowledgements
+
+* Icon made by [Freepik](https://www.freepik.com/) from [www.flaticon.com](https://www.flaticon.com) and is licensed by [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
