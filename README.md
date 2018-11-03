@@ -4,8 +4,35 @@ This project contains libraries with quick to use methods for Active Directory t
 
 ## Features
 
-Set users password 
-Unlock user account
+### Audit Tasks
+
+Does Organisational Unit Exist
+
+Get All Locked Out Accounts
+
+### User Account Tasks
+
+Get User Account Details
+
+Unlock Account
+
+Set Users PAssword
+
+Get Last Logon
+
+Get Thumbnail Photo
+
+Move to Organisational Unit
+
+### Group Account Tasks
+
+Remove User from Group
+
+Add User to Group
+
+Get Group Members
+
+Get Group Details
 
 ## Getting Started
 
