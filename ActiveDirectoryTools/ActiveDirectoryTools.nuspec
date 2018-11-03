@@ -6,13 +6,13 @@
     <title>Active Directory Easy API</title>
     <authors>Antony Bragg</authors>
     <owners>Antony Bragg</owners>
-    <licenseUrl></licenseUrl>
+    <licenseUrl>https://github.com/captainqwerty/ActiveDirectoryEasyAPI/blob/master/LICENSE</licenseUrl>
     <projectUrl>https://github.com/captainqwerty/ActiveDirectoryEasyAPI</projectUrl>
-    <iconUrl>https://raw.githubusercontent.com/captainqwerty/ActiveDirectoryEasyAPI/master/ActiveDirectoryTools/Resources/Icon.ico</iconUrl>
+    <iconUrl>https://raw.githubusercontent.com/captainqwerty/ActiveDirectoryEasyAPI/master/ActiveDirectoryTools/Resources/Icon.png</iconUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>A simple API for basic Active Directory tasks.</description>
-    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <releaseNotes>Initial release.</releaseNotes>
     <copyright>Copyright 2018</copyright>
-    <tags>Tag1 Tag2</tags>
+    <tags>ActiveDirectory Active Directory API Management LDAP</tags>
   </metadata>
 </package>
