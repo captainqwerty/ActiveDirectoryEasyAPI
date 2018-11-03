@@ -4,3 +4,8 @@
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.csproj.CoreCompileInputs.cache
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.dll
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\bin\Release\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\bin\Release\ActiveDirectoryTools.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.csproj.CoreCompileInputs.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryTools\ActiveDirectoryTools\obj\Release\ActiveDirectoryTools.pdb

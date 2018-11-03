@@ -5,10 +5,10 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Active Directory Tools")]
+[assembly: AssemblyTitle("Active Directory Easy API")]
 [assembly: AssemblyDescription("A simple API for basic Active Directory tasks.")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("CaptainQwerty Software")]
+[assembly: AssemblyCompany("Antony Bragg")]
 [assembly: AssemblyProduct("Active Directory Tools")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]

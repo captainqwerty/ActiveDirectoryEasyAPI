@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>CaptainQwerty.ActiveDirectoryEasyAPI</id>
+    <version>1.0</version>
+    <title>Active Directory Easy API</title>
+    <authors>Antony Bragg</authors>
+    <owners>Antony Bragg</owners>
+    <licenseUrl></licenseUrl>
+    <projectUrl>https://github.com/captainqwerty/ActiveDirectoryEasyAPI</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/captainqwerty/ActiveDirectoryEasyAPI/master/ActiveDirectoryTools/Resources/Icon.ico</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A simple API for basic Active Directory tasks.</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2018</copyright>
+    <tags>Tag1 Tag2</tags>
+  </metadata>
+</package>
