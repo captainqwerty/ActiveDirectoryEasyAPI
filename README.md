@@ -18,7 +18,7 @@ Get User Account Details
 
 Unlock Account
 
-Set Users PAssword
+Set Users Password
 
 Get Last Logon
 
