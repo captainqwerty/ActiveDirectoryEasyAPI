@@ -126,43 +126,47 @@ namespace ActiveDirectoryTools
                     EmailAddress = user.EmailAddress,
                     Sid = user.Sid,
                     Username = user.SamAccountName,
-                    DistinguishedName = user.DistinguishedName
+                    DistinguishedName = user.DistinguishedName, 
                 };
 
+                
                 using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
                 {
                     if (directoryEntry == null) return userAccount;
 
-                    var company = directoryEntry.Properties["company"].Value.ToString();
-                    if (!string.IsNullOrEmpty(company))
+                    var company = directoryEntry.Properties["company"].Value;
+                    if (company != null)
                     {
-                        userAccount.Company = directoryEntry.Properties["company"].Value.ToString();
+                        userAccount.Company = company.ToString();
                     }
 
-                    userAccount.Department = directoryEntry.Properties["department"].Value.ToString();
-                    userAccount.JobTitle = directoryEntry.Properties["title"].Value.ToString();
-                    userAccount.Office = directoryEntry.Properties["physicalDeliveryOfficeName"].Value.ToString();
+                    var department = directoryEntry.Properties["department"].Value;
+                    if (department != null)
+                    {
+                        userAccount.Department = department.ToString();
+                    }
+
+                    var title = directoryEntry.Properties["title"].Value;
+                    if (title != null)
+                    {
+                        userAccount.JobTitle = title.ToString();
+                    }
+
+                    var physicalDeliveryOfficeName = directoryEntry.Properties["physicalDeliveryOfficeName"].Value;
+                    if (title != null)
+                    {
+                        userAccount.Office = physicalDeliveryOfficeName.ToString();
+                    }
+
+
+                    var properties = ((DirectoryEntry)user.GetUnderlyingObject()).Properties;
+                    foreach (var property in properties["proxyaddresses"])
+                    {
+                        userAccount.ProxyAddresses.Add(property.ToString());
+                    }
+
                     userAccount.WhenCreated = Convert.ToDateTime(directoryEntry.Properties["whenCreated"].Value);
                     userAccount.ThumbnailPhoto = directoryEntry.Properties["ThumbnailPhoto"].Value as byte[];
-                    // PROXY ADDRESS["proxyAddresses"] and is multi value strings
-
-                    //string username = "username";
-                    //string domain = "domain";
-
-                    //List<string> emailAddresses = new List<string>();
-
-                    //PrincipalContext domainContext = new PrincipalContext(ContextType.Domain, domain);
-                    //UserPrincipal user = UserPrincipal.FindByIdentity(domainContext, username);
-
-                    //// Add the "mail" entry
-                    //emailAddresses.Add(user.EmailAddress);
-
-                    //// Add the "proxyaddresses" entries.
-                    //PropertyCollection properties = ((DirectoryEntry)user.GetUnderlyingObject()).Properties;
-                    //foreach (object property in properties["proxyaddresses"])
-                    //{
-                    //    emailAddresses.Add(property.ToString());
-                    //}
                 }
 
                 return userAccount;
