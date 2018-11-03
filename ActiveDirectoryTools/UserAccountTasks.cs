@@ -128,7 +128,6 @@ namespace ActiveDirectoryTools
                     Username = user.SamAccountName,
                     DistinguishedName = user.DistinguishedName, 
                 };
-
                 
                 using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
                 {
@@ -157,7 +156,6 @@ namespace ActiveDirectoryTools
                     {
                         userAccount.Office = physicalDeliveryOfficeName.ToString();
                     }
-
 
                     var properties = ((DirectoryEntry)user.GetUnderlyingObject()).Properties;
                     foreach (var property in properties["proxyaddresses"])
