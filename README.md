@@ -74,21 +74,68 @@ userAccountTasks.SetUsersPassword("antony.bragg", "DemoPassword123", true); // R
 
 ```
 
-Get Last Logon
+MoveToOrganisationalUnit(string username, string newOrganisationalUnit)
 
-Get Thumbnail Photo
+The supplied user account will be moved to the given organisational unit if it exists.  The organisational unit's distinguised name is required.
 
-Move to Organisational Unit
+```
+userAccountTasks.MoveToOrganisationalUnit("antony.bragg", "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
+```
+GetLastLogOn(string username)
+
+Not recommended for use yet.
+
+GetThumbnailPhoto(string username)
+
+Returns the users thumbnail photo in a byte format.  In the next version of the software this will be exportable in a range of formats.
+
+```
+var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+```
 
 ### Group Account Tasks
 
-Remove User from Group
+Creating an instance of the GroupAccountTasks class.
 
-Add User to Group
+```
+var groupAccountTasks = new GroupAccountTasks();
+```
 
-Get Group Members
+RemoveUserFromGroup(string username, string groupName)
 
-Get Group Details
+```
+groupAccountTasks.RemoveUserFromGroup("antony.bragg", "Domain Admins");
+```
+
+AddUsertoGroup(string username, string groupName)
+
+```
+groupAccountTasks.AddUsertoGroup("antony.bragg", "Domain Admins");
+```
+
+GetGroupMembers(string groupName)
+
+```
+var membersOfGroup = groupAccountTasks.GetGroupMembers("Domain Admins");
+
+foreach (var user in membersOfGroup)
+{
+    Console.WriteLine($"{user.FirstName} {user.LastName}");
+}
+```
+
+GetGroupDetails(string groupName)
+
+```
+var group = groupAccountTasks.GetGroupDetails("Domain Admins");
+            
+Console.WriteLine(group.Name);
+Console.WriteLine(group.Description);
+foreach (var user in group.GroupMembers)
+{
+                Console.WriteLine($"{user.Username}");
+}
+```
 
 ### Prerequisites
 
@@ -96,12 +143,10 @@ Get Group Details
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
 Installation from NuGet
 
 ```
-Example... Once it is on NuGet...
+PM> Install-Package CaptainQwerty.ActiveDirectoryEasyAPI -Version 1.0.0
 ```
 
 ## Authors
