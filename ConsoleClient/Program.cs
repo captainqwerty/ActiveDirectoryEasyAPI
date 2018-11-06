@@ -24,7 +24,8 @@ namespace ConsoleClient
             //var lastLogon = userAccountTasks.GetLastLogOn("Administrator");
             //Console.WriteLine(lastLogon);
 
-            //var photo = userAccountTasks.GetThumbnailPhoto("18ttest");
+            var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+
             //Console.WriteLine(photo.Length);
 
             //userAccountTasks.MoveToOrganisationalUnit("18Ttest", "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
