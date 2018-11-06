@@ -14,11 +14,11 @@ namespace ActiveDirectoryTools.Models
             BMP, GIF, JPG, PNG
         }
 
-        public void ExportToDisk(Thumbnail thumbnail, Format format, string location)
+        public void ExportToDisk(Format format, string location)
         {
             // Conversion?
 
-            File.WriteAllBytes(Path.Combine(location, thumbnail.Name + "." + format), thumbnail.ThumbnailData);
+            File.WriteAllBytes(Path.Combine(location, Name + "." + format), ThumbnailData);
         }
     }
 }
