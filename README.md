@@ -143,7 +143,7 @@ foreach (var user in group.GroupMembers)
 
 ### Installing
 
-Installation from NuGet
+Installation from NuGet - [Package on Nuget](https://www.nuget.org/packages/CaptainQwerty.ActiveDirectoryEasyAPI/)
 
 ```
 PM> Install-Package CaptainQwerty.ActiveDirectoryEasyAPI -Version 1.0.0
