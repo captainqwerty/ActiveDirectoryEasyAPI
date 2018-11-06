@@ -39,8 +39,10 @@ namespace ActiveDirectoryTools
         /// </summary>
         /// <param name="username">The username of the account photo to retrieve</param>
         /// <returns>Thumbnail phoot in bytes</returns>
-        public byte[] GetThumbnailPhoto(string username)
+        public Thumbnail GetThumbnailPhoto(string username)
         {
+            var thumnail = new Thumbnail();
+
             byte[] bytes = null;
 
             using (var principalContext = new PrincipalContext(ContextType.Domain))
@@ -61,7 +63,10 @@ namespace ActiveDirectoryTools
                 
                 using (var user = result.GetUnderlyingObject() as DirectoryEntry)
                 {
-                    return bytes = user.Properties["ThumbnailPhoto"].Value as byte[];
+                    thumnail.Name = username;
+                    thumnail.ThumbnailData = user.Properties["ThumbnailPhoto"].Value as byte[];
+
+                    return thumnail;
                 } 
             }
         }

@@ -6,8 +6,8 @@ namespace ActiveDirectoryTools.Models
 {
     public class Thumbnail : IThumbnail
     {
-        public string Name { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public byte[] ThumbnailData { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string Name { get; set; }
+        public byte[] ThumbnailData { get; set; }
 
         public enum Format
         {

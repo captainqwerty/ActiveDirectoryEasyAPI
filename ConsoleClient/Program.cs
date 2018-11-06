@@ -1,5 +1,6 @@
 ﻿using System;
 using ActiveDirectoryTools;
+using ActiveDirectoryTools.Models;
 
 namespace ConsoleClient
 {
@@ -12,8 +13,8 @@ namespace ConsoleClient
             var userAccountTasks = new UserAccountTasks();
             var groupAccountTasks = new GroupAccountTasks();
 
-            var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
-            Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
+            //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
+            //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
 
             //userAccountTasks.UnlockAccount("18ttest");
             //Console.WriteLine("Account unlocked");
@@ -24,7 +25,9 @@ namespace ConsoleClient
             //var lastLogon = userAccountTasks.GetLastLogOn("Administrator");
             //Console.WriteLine(lastLogon);
 
-            var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+            //var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+            //photo.ExportToDisk(photo,Thumbnail.Format.JPG,"C:\\");
+            //Console.WriteLine("Photo saved.");
 
             //Console.WriteLine(photo.Length);
 
