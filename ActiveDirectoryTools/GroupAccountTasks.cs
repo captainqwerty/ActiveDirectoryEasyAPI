@@ -93,7 +93,7 @@ namespace ActiveDirectoryTools
             }
         }
 
-        public void CreateGroup(string groupName, GroupType groupType, GroupScope groupScope, IEnumerable<UserAccount> members = null)
+        public void CreateGroup(string groupName, GroupType groupType, GroupScope groupScope, string description = null, string organisationUnit = null, IEnumerable<UserAccount> members = null)
         {
             System.DirectoryServices.AccountManagement.GroupScope scope;
 
@@ -127,12 +127,14 @@ namespace ActiveDirectoryTools
                     break;
             }
 
-            using (var context = new PrincipalContext(ContextType.Domain))
+            var context = organisationUnit != null ? new PrincipalContext(ContextType.Domain, null, organisationUnit) : new PrincipalContext(ContextType.Domain);
+
+            using (context)
             using (var groupPrincipal = new GroupPrincipal(context))
             {
                 groupPrincipal.Name = groupName;
                 groupPrincipal.SamAccountName = groupName;
-                groupPrincipal.Description = groupName;
+                groupPrincipal.Description = description;
                 groupPrincipal.IsSecurityGroup = isSecurityGroup;
                 groupPrincipal.GroupScope = scope;
                 groupPrincipal.Save();
@@ -152,7 +154,13 @@ namespace ActiveDirectoryTools
 
         public void RenameGroup(string groupName, string newGroupName)
         {
-
+            using (var context = new PrincipalContext(ContextType.Domain))
+            using (var group = GroupPrincipal.FindByIdentity(context, groupName))
+            {
+                var groupEntry = (DirectoryEntry)group.GetUnderlyingObject();
+                groupEntry.Rename(newGroupName);
+                groupEntry.CommitChanges();
+            }
         }
     }
 }

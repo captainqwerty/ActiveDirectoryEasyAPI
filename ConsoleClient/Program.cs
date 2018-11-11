@@ -57,8 +57,11 @@ namespace ConsoleClient
             //    Console.WriteLine($"{user.Username}");
             //}
 
-            //groupAccountTasks.CreateGroup("Test Group",GroupAccountTasks.GroupType.Security,GroupAccountTasks.GroupScope.Universal);
+            //groupAccountTasks.CreateGroup("Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "OU=Security Groups,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine("Group created");
+
+            groupAccountTasks.RenameGroup("Test Group", "Renamed Test Group");
+            Console.WriteLine("Group renamed");
 
             //var shouldBeTrue = auditTasks.DoesOrganisationalUnitExist("OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
             //var shouldBeFalse = auditTasks.DoesOrganisationalUnitExist("OU=Managers,DC=gen2training,DC=co,DC=uk");
