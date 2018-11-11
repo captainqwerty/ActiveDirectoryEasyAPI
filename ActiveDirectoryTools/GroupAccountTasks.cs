@@ -80,5 +80,15 @@ namespace ActiveDirectoryTools
                 // Error
             }
         }
+
+        public void CreateGroup()
+        {
+
+        }
+
+        public void ConvertGroup()
+        {
+
+        }
     }
 }

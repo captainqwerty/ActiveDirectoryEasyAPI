@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
+using System.DirectoryServices.ActiveDirectory;
+using System.Linq;
 using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
@@ -21,12 +24,12 @@ namespace ActiveDirectoryTools
                 using (var user = UserPrincipal.FindByIdentity(principalContext, username))
                 {
                     if (user == null) return;
-                
+
                     user.UnlockAccount();
 
                     user.SetPassword(password);
 
-                    if(expireNow)
+                    if (expireNow)
                     {
                         user.ExpirePasswordNow();
                     }
@@ -60,14 +63,14 @@ namespace ActiveDirectoryTools
                 var result = principalSearcher.FindOne();
 
                 if (result == null) return null;
-                
+
                 using (var user = result.GetUnderlyingObject() as DirectoryEntry)
                 {
                     thumnail.Name = username;
                     thumnail.ThumbnailData = user.Properties["ThumbnailPhoto"].Value as byte[];
 
                     return thumnail;
-                } 
+                }
             }
         }
 
@@ -93,20 +96,24 @@ namespace ActiveDirectoryTools
         /// <returns></returns>
         public DateTime? GetLastLogOn(string username)
         {
-            DateTime? lastLogon = null;
+            var lastLogons = new List<DateTime?>();
 
-            using (var principalContext = new PrincipalContext(ContextType.Domain))
+            using (var domain = Domain.GetCurrentDomain())
             {
-                using (var user = UserPrincipal.FindByIdentity(principalContext, username))
+                foreach (DomainController domainController in domain.DomainControllers)
                 {
-                    if (user != null)
+                    using (var context = new PrincipalContext(ContextType.Domain, domainController.Name))
+                    using (var user = UserPrincipal.FindByIdentity(context, username))
                     {
-                        lastLogon = user.LastLogon;
+                        if (user != null)
+                        {
+                            lastLogons.Add(user.LastLogon); // Currently getting LastLogon not LastLogonTimeStamp
+                        }
                     }
                 }
             }
 
-            return lastLogon;
+            return lastLogons.OrderByDescending(x => x.Value).First();
         }
 
         /// <summary>
@@ -131,9 +138,9 @@ namespace ActiveDirectoryTools
                     EmailAddress = user.EmailAddress,
                     Sid = user.Sid,
                     Username = user.SamAccountName,
-                    DistinguishedName = user.DistinguishedName, 
+                    DistinguishedName = user.DistinguishedName,
                 };
-                
+
                 using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
                 {
                     if (directoryEntry == null) return userAccount;
@@ -180,7 +187,7 @@ namespace ActiveDirectoryTools
         {
             var auditTasks = new AuditTasks();
             if (!auditTasks.DoesOrganisationalUnitExist(newOrganisationalUnit)) return;
-                  
+
             var user = GetUserAccountDetails(username);
 
             var originalLocation = new DirectoryEntry($"LDAP://{user.DistinguishedName}");

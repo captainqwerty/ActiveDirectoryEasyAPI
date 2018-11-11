@@ -13,6 +13,9 @@ namespace ConsoleClient
             var userAccountTasks = new UserAccountTasks();
             var groupAccountTasks = new GroupAccountTasks();
 
+            Console.WriteLine("Username: ");
+            var username = Console.ReadLine();
+
             //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
             //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
 
@@ -22,12 +25,12 @@ namespace ConsoleClient
             //userAccountTasks.SetUsersPassword("18ttest","Bacon123*");
             //Console.WriteLine("Password set");
 
-            //var lastLogon = userAccountTasks.GetLastLogOn("Administrator");
-            //Console.WriteLine(lastLogon);
+            var lastLogon = userAccountTasks.GetLastLogOn(username);
+            Console.WriteLine(lastLogon);
 
-            var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
-            photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
-            Console.WriteLine("Photo saved.");
+            //var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+            //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
+            //Console.WriteLine("Photo saved.");
 
             //Console.WriteLine(photo.Length);
 
