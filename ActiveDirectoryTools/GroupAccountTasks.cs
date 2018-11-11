@@ -130,6 +130,8 @@ namespace ActiveDirectoryTools
             using (var context = new PrincipalContext(ContextType.Domain))
             using (var groupPrincipal = new GroupPrincipal(context))
             {
+                groupPrincipal.Name = groupName;
+                groupPrincipal.SamAccountName = groupName;
                 groupPrincipal.Description = groupName;
                 groupPrincipal.IsSecurityGroup = isSecurityGroup;
                 groupPrincipal.GroupScope = scope;
@@ -145,7 +147,7 @@ namespace ActiveDirectoryTools
 
         public void ConvertGroup(string groupName, GroupScope groupScope, GroupType groupType)
         {
-
+            
         }
 
         public void RenameGroup(string groupName, string newGroupName)
