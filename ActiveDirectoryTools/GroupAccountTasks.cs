@@ -1,12 +1,24 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
-using System.Runtime.InteropServices.ComTypes;
 using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
     public class GroupAccountTasks
     {
+        public enum GroupType
+        {
+            Security, Distribution
+        }
+
+        public enum GroupScope
+        {
+            Global, Local, Universal
+        }
+
         public Group GetGroupDetails(string groupName)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
@@ -58,7 +70,7 @@ namespace ActiveDirectoryTools
                     group.Save();
                 }
             }
-            catch (System.DirectoryServices.DirectoryServicesCOMException e)
+            catch (DirectoryServicesCOMException e)
             {
                 // Error
             }
@@ -68,25 +80,75 @@ namespace ActiveDirectoryTools
         {
             try
             {
-                using (var pc = new PrincipalContext(ContextType.Domain))
+                using (var context = new PrincipalContext(ContextType.Domain))
                 {
-                    var group = GroupPrincipal.FindByIdentity(pc, groupName);
-                    group.Members.Remove(pc, IdentityType.SamAccountName, username);
+                    var group = GroupPrincipal.FindByIdentity(context, groupName);
+                    group.Members.Remove(context, IdentityType.SamAccountName, username);
                     group.Save();
                 }
             }
-            catch (System.DirectoryServices.DirectoryServicesCOMException e)
+            catch (DirectoryServicesCOMException e)
             {
                 // Error
             }
         }
 
-        public void CreateGroup()
+        public void CreateGroup(string groupName, GroupType groupType, GroupScope groupScope, IEnumerable<UserAccount> members = null)
+        {
+            System.DirectoryServices.AccountManagement.GroupScope scope;
+
+            switch (groupScope)
+            {
+                case GroupScope.Local:
+                    scope = System.DirectoryServices.AccountManagement.GroupScope.Local;
+                    break;
+                case GroupScope.Global:
+                    scope = System.DirectoryServices.AccountManagement.GroupScope.Global;
+                    break;
+                case GroupScope.Universal:
+                    scope = System.DirectoryServices.AccountManagement.GroupScope.Universal;
+                    break;
+                default:
+                    scope = System.DirectoryServices.AccountManagement.GroupScope.Universal;
+                    break;
+            }
+
+            bool isSecurityGroup;
+            switch (groupType)
+            {
+                case GroupType.Distribution:
+                    isSecurityGroup = false;
+                    break;
+                case GroupType.Security:
+                    isSecurityGroup = true;
+                    break;
+                default:
+                    isSecurityGroup = false;
+                    break;
+            }
+
+            using (var context = new PrincipalContext(ContextType.Domain))
+            using (var groupPrincipal = new GroupPrincipal(context))
+            {
+                groupPrincipal.Description = groupName;
+                groupPrincipal.IsSecurityGroup = isSecurityGroup;
+                groupPrincipal.GroupScope = scope;
+                groupPrincipal.Save();
+            }
+
+            if (members == null) return;
+            foreach (var user in members)
+            {
+                AddUsertoGroup(user.Username, groupName);
+            }
+        }
+
+        public void ConvertGroup(string groupName, GroupScope groupScope, GroupType groupType)
         {
 
         }
 
-        public void ConvertGroup()
+        public void RenameGroup(string groupName, string newGroupName)
         {
 
         }
