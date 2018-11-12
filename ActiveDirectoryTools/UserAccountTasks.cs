@@ -107,7 +107,13 @@ namespace ActiveDirectoryTools
                     {
                         if (user != null)
                         {
-                            lastLogons.Add(user.LastLogon); // Currently getting LastLogon not LastLogonTimeStamp
+                            //lastLogons.Add(user.LastLogon); // Currently getting LastLogon not LastLogonTimeStamp
+                            
+                            using (var directoryEntry = user.GetUnderlyingObject() as DirectoryEntry)
+                            {
+                                long lastLogon = (long)directoryEntry.Properties["lastLogon"].Value;
+                                lastLogons.Add(DateTime.FromFileTime(lastLogon));
+                            }
                         }
                     }
                 }
