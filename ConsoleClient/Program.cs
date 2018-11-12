@@ -13,8 +13,8 @@ namespace ConsoleClient
             var userAccountTasks = new UserAccountTasks();
             var groupAccountTasks = new GroupAccountTasks();
 
-            //Console.WriteLine("Username: ");
-            //var username = Console.ReadLine();
+            Console.WriteLine("Username: ");
+            var username = Console.ReadLine();
 
             //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
             //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
@@ -25,8 +25,8 @@ namespace ConsoleClient
             //userAccountTasks.SetUsersPassword("18ttest","Bacon123*");
             //Console.WriteLine("Password set");
 
-            //var lastLogon = userAccountTasks.GetLastLogOn(username);
-            //Console.WriteLine(lastLogon);
+            var lastLogon = userAccountTasks.GetLastLogOn(username);
+            Console.WriteLine(lastLogon);
 
             //var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
             //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
@@ -60,8 +60,8 @@ namespace ConsoleClient
             //groupAccountTasks.CreateGroup("Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "OU=Security Groups,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine("Group created");
 
-            groupAccountTasks.RenameGroup("Test Group", "Renamed Test Group");
-            Console.WriteLine("Group renamed");
+            //groupAccountTasks.RenameGroup("Test Group", "Renamed Test Group");
+            //Console.WriteLine("Group renamed");
 
             //var shouldBeTrue = auditTasks.DoesOrganisationalUnitExist("OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
             //var shouldBeFalse = auditTasks.DoesOrganisationalUnitExist("OU=Managers,DC=gen2training,DC=co,DC=uk");

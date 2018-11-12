@@ -100,9 +100,9 @@ namespace ActiveDirectoryTools
 
             using (var domain = Domain.GetCurrentDomain())
             {
-                foreach (DomainController domainController in domain.DomainControllers)
+                foreach (DomainController domainController in domain.FindAllDiscoverableDomainControllers())
                 {
-                    using (var context = new PrincipalContext(ContextType.Domain, domainController.Name))
+                    using (var context = new PrincipalContext(ContextType.Domain, domainController.IPAddress))
                     using (var user = UserPrincipal.FindByIdentity(context, username))
                     {
                         if (user != null)
