@@ -202,5 +202,27 @@ namespace ActiveDirectoryTools
             originalLocation.Close();
             newLocation.Close();
         }
+
+        public List<UserAccount> GetAllLockedOutAccounts()
+        {
+            var accountTools = new UserAccountTasks();
+            var lockedUsers = new List<UserAccount>();
+
+            using (var context = new PrincipalContext(ContextType.Domain))
+            using (var userPrincipal = new UserPrincipal(context))
+            using (var search = new PrincipalSearcher(userPrincipal))
+            {
+                foreach (var result in search.FindAll())
+                {
+                    var user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, result.SamAccountName);
+                    if (user != null && !user.IsAccountLockedOut()) continue;
+                    lockedUsers.Add(accountTools.GetUserAccountDetails(user.UserPrincipalName));
+                }
+
+                lockedUsers.Sort();
+
+                return lockedUsers;
+            }
+        }
     }
 }

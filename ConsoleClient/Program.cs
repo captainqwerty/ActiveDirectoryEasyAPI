@@ -19,14 +19,20 @@ namespace ConsoleClient
             //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
             //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
 
+            //var lockedOutAccounts = userAccountTasks.GetAllLockedOutAccounts();
+            //foreach (var lockedAccount in lockedOutAccounts)
+            //{
+            //    Console.WriteLine(lockedAccount.Username);
+            //}
+
             //userAccountTasks.UnlockAccount("18ttest");
             //Console.WriteLine("Account unlocked");
 
             //userAccountTasks.SetUsersPassword("18ttest","Bacon123*");
             //Console.WriteLine("Password set");
 
-            var lastLogon = userAccountTasks.GetLastLogOn(username);
-            Console.WriteLine(lastLogon);
+            //var lastLogon = userAccountTasks.GetLastLogOn(username);
+            //Console.WriteLine(lastLogon);
 
             //var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
             //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
@@ -67,12 +73,6 @@ namespace ConsoleClient
             //var shouldBeFalse = auditTasks.DoesOrganisationalUnitExist("OU=Managers,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine($"Should be True: {shouldBeTrue}");
             //Console.WriteLine($"Should be False: {shouldBeFalse}");
-
-            //var lockedOutAccounts = auditTasks.GetAllLockedOutAccounts();
-            //foreach (var lockedAccount in lockedOutAccounts)
-            //{
-            //    Console.WriteLine(lockedAccount.Username);
-            //}
 
             Console.ReadLine();
         }
