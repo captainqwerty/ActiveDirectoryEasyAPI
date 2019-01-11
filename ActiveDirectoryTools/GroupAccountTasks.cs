@@ -43,7 +43,7 @@ namespace ActiveDirectoryTools
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
             {
-                if (groupResult == null) return null;
+                if (groupResult == null) throw new NoMatchingPrincipalException();
 
                 var groupResultMembers = groupResult.GetMembers();
 
