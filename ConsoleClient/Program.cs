@@ -34,7 +34,7 @@ namespace ConsoleClient
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
             //Console.WriteLine(lastLogon);
 
-            //var photo = userAccountTasks.GetThumbnailPhoto("antony.bragg");
+            //var photo = userAccountTasks.GetThumbnailPhoto(username);
             //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
             //Console.WriteLine("Photo saved.");
 
