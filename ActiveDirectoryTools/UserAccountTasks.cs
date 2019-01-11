@@ -84,7 +84,14 @@ namespace ActiveDirectoryTools
             {
                 using (var user = UserPrincipal.FindByIdentity(principalContext, username))
                 {
-                    user?.UnlockAccount();
+                    if (user != null)
+                    {
+                        user?.UnlockAccount();
+                    }
+                    else
+                    {
+                        throw new NoMatchingPrincipalException();
+                    }
                 }
             }
         }
