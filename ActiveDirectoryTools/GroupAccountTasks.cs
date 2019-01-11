@@ -24,7 +24,7 @@ namespace ActiveDirectoryTools
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
             {
-                if (groupResult == null) return null;
+                if (groupResult == null) throw new NoMatchingPrincipalException();
 
                 var group = new Group
                 {
@@ -127,6 +127,7 @@ namespace ActiveDirectoryTools
                     break;
             }
 
+            // NEED TO CHECK IF OU IS A DISTINGUISED NAME THAT EXISTS
             var context = organisationUnit != null ? new PrincipalContext(ContextType.Domain, null, organisationUnit) : new PrincipalContext(ContextType.Domain);
 
             using (context)
