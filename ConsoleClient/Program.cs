@@ -16,7 +16,7 @@ namespace ConsoleClient
             Console.WriteLine("Username: ");
             var username = Console.ReadLine();
 
-            //var user = userAccountTasks.GetUserAccountDetails("antony.bragg");
+            //var user = userAccountTasks.GetUserAccountDetails(username);
             //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
 
             //var lockedOutAccounts = userAccountTasks.GetAllLockedOutAccounts();
@@ -25,10 +25,12 @@ namespace ConsoleClient
             //    Console.WriteLine(lockedAccount.Username);
             //}
 
-            //userAccountTasks.UnlockAccount("18ttest");
+            //userAccountTasks.UnlockAccount(username);
             //Console.WriteLine("Account unlocked");
 
-            //userAccountTasks.SetUsersPassword("18ttest","Bacon123*");
+            //Console.WriteLine("Enter a new password:");
+            //var password = Console.ReadLine();
+            //userAccountTasks.SetUsersPassword(username,password);
             //Console.WriteLine("Password set");
 
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
