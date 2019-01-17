@@ -16,14 +16,10 @@ namespace ConsoleClient
             Console.WriteLine("Username: ");
             var username = Console.ReadLine();
 
+            // SEEMS TO BE WORKING
+
             //var user = userAccountTasks.GetUserAccountDetails(username);
             //Console.WriteLine($"{user.FirstName} {user.LastName} {user.LockedOut}");
-
-            //var lockedOutAccounts = userAccountTasks.GetAllLockedOutAccounts();
-            //foreach (var lockedAccount in lockedOutAccounts)
-            //{
-            //    Console.WriteLine(lockedAccount.Username);
-            //}
 
             //userAccountTasks.UnlockAccount(username);
             //Console.WriteLine("Account unlocked");
@@ -33,14 +29,38 @@ namespace ConsoleClient
             //userAccountTasks.SetUsersPassword(username,password);
             //Console.WriteLine("Password set");
 
+            //var photo = userAccountTasks.GetThumbnailPhoto(username);
+            //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
+            //Console.WriteLine(photo.Length);
+            //Console.WriteLine("Photo saved.");
+
+
+
+            // NEEDS FURTHER TESTING
+
+            //var lockedOutAccounts = userAccountTasks.GetAllLockedOutAccounts();
+            //foreach (var lockedAccount in lockedOutAccounts)
+            //{
+            //    Console.WriteLine(lockedAccount.Username);
+            //}
+
+
+
+            // DOES NOT WORK
+
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
             //Console.WriteLine(lastLogon);
 
-            //var photo = userAccountTasks.GetThumbnailPhoto(username);
-            //photo.ExportToDisk(Thumbnail.Format.JPG, "C:\\");
-            //Console.WriteLine("Photo saved.");
 
-            //Console.WriteLine(photo.Length);
+
+
+
+
+
+
+
+
+
 
             //userAccountTasks.MoveToOrganisationalUnit("18Ttest", "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine("Account moved");
