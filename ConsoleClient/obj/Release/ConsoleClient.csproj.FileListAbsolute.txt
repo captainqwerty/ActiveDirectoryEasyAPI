@@ -8,3 +8,13 @@
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.csproj.CopyComplete
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.exe
 \\LHQ-FILE-01\Redirection\antony.bragg\Documents\GitHub\ActiveDirectoryTools\ConsoleClient\obj\Release\ConsoleClient.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Release\ConsoleClient.exe.config
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Release\ConsoleClient.exe
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Release\ConsoleClient.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Release\ActiveDirectoryTools.dll
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Release\ActiveDirectoryTools.pdb
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Release\ConsoleClient.csprojAssemblyReference.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Release\ConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Release\ConsoleClient.csproj.CopyComplete
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Release\ConsoleClient.exe
+C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Release\ConsoleClient.pdb

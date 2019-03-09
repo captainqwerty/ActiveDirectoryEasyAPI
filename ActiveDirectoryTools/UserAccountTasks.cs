@@ -46,8 +46,6 @@ namespace ActiveDirectoryTools
         {
             var thumnail = new Thumbnail();
 
-            byte[] bytes = null;
-
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
                 var userPrincipal = new UserPrincipal(principalContext)
@@ -194,7 +192,7 @@ namespace ActiveDirectoryTools
         public void MoveToOrganisationalUnit(string username, string newOrganisationalUnit)
         {
             var auditTasks = new AuditTasks();
-            if (!auditTasks.DoesOrganisationalUnitExist(newOrganisationalUnit)) return;
+            if (!auditTasks.DoesDistinguishedNameExist(newOrganisationalUnit)) return;
 
             var user = GetUserAccountDetails(username);
 

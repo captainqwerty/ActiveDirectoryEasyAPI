@@ -34,6 +34,24 @@ namespace ConsoleClient
             //Console.WriteLine(photo.Length);
             //Console.WriteLine("Photo saved.");
 
+            //var shouldBeTrue = auditTasks.DoesDistinguishedNameExist("OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
+            //Console.WriteLine($"Should be True: {shouldBeTrue}");
+            //var shouldBeFalse = auditTasks.DoesDistinguishedNameExist("OU=Managers,DC=gen2training,DC=co,DC=uk");
+            //Console.WriteLine($"Should be False: {shouldBeFalse}");
+            //var shouldFail = auditTasks.DoesDistinguishedNameExist("Bacon");
+            //Console.WriteLine($"Should fail: {shouldFail}");
+
+            //userAccountTasks.MoveToOrganisationalUnit(username, "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
+            //Console.WriteLine("Account moved");
+
+
+
+
+
+
+
+
+
 
 
             // NEEDS FURTHER TESTING
@@ -52,18 +70,6 @@ namespace ConsoleClient
             //Console.WriteLine(lastLogon);
 
 
-
-
-
-
-
-
-
-
-
-
-            //userAccountTasks.MoveToOrganisationalUnit("18Ttest", "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
-            //Console.WriteLine("Account moved");
 
             //groupAccountTasks.RemoveUserFromGroup("18Ttest", "Role - Student");
             //Console.WriteLine("Removed from Group");
@@ -91,10 +97,9 @@ namespace ConsoleClient
             //groupAccountTasks.RenameGroup("Test Group", "Renamed Test Group");
             //Console.WriteLine("Group renamed");
 
-            //var shouldBeTrue = auditTasks.DoesOrganisationalUnitExist("OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
-            //var shouldBeFalse = auditTasks.DoesOrganisationalUnitExist("OU=Managers,DC=gen2training,DC=co,DC=uk");
-            //Console.WriteLine($"Should be True: {shouldBeTrue}");
-            //Console.WriteLine($"Should be False: {shouldBeFalse}");
+
+
+
 
             Console.ReadLine();
         }

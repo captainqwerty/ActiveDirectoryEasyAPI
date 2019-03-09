@@ -21,4 +21,3 @@ C:\GitHub\ActiveDirectoryEasyAPI\ActiveDirectoryTools\obj\Debug\ActiveDirectoryT
 C:\GitHub\ActiveDirectoryEasyAPI\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.csproj.CoreCompileInputs.cache
 C:\GitHub\ActiveDirectoryEasyAPI\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.dll
 C:\GitHub\ActiveDirectoryEasyAPI\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.pdb
-C:\Users\Antony\Documents\GitHub\ActiveDirectoryEasyAPI\ActiveDirectoryTools\obj\Debug\ActiveDirectoryTools.csprojAssemblyReference.cache

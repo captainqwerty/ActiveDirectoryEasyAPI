@@ -4,17 +4,24 @@ using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
+using System.Text.RegularExpressions;
 using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
     public class AuditTasks
     {
-        public bool DoesOrganisationalUnitExist(string organisationalUnit)
+        public bool DoesDistinguishedNameExist(string distinguishedName)
         {
-            var organisationalUnitExists = DirectoryEntry.Exists("LDAP://" + organisationalUnit);
-
-            return organisationalUnitExists;
+            try
+            {
+                var distinguishedNameExists = DirectoryEntry.Exists("LDAP://" + distinguishedName);
+                return distinguishedNameExists;
+            }
+            catch (System.Runtime.InteropServices.COMException)
+            {
+                throw new CustomException($"Are you sure that was the correct format for a Distinguished name? Please check: {distinguishedName}");
+            }
         }
 
         public static List<UserPrincipal> GetInactiveUsers(TimeSpan inactivityTime)

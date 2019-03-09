@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CustomException.cs" />
     <Compile Include="GroupAccountTasks.cs" />
     <Compile Include="Interfaces\IOrganisationalUnit.cs" />
     <Compile Include="Interfaces\IThumbnail.cs" />
