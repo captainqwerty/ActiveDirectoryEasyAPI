@@ -44,7 +44,8 @@ namespace ConsoleClient
             //userAccountTasks.MoveToOrganisationalUnit(username, "OU=Disabled Accounts,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine("Account moved");
 
-
+            //groupAccountTasks.RemoveUserFromGroup(username, "Domain Admins");
+            //Console.WriteLine("Removed from Group");
 
 
 
@@ -62,10 +63,11 @@ namespace ConsoleClient
             //    Console.WriteLine(lockedAccount.Username);
             //}
 
+            // Renames group but also fails....
+            //groupAccountTasks.RenameGroup("Testy", "Wireless Student Access");
+            //Console.WriteLine("Group renamed");
 
-            // Works but need to test if user or group do not exist, or if the user is not in the group
-            //groupAccountTasks.RemoveUserFromGroup(username, "Role - IQA");
-            //Console.WriteLine("Removed from Group");
+
 
 
 
@@ -94,11 +96,6 @@ namespace ConsoleClient
 
             //groupAccountTasks.CreateGroup("Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "OU=Security Groups,DC=gen2training,DC=co,DC=uk");
             //Console.WriteLine("Group created");
-
-            //groupAccountTasks.RenameGroup("Test Group", "Renamed Test Group");
-            //Console.WriteLine("Group renamed");
-
-
 
 
 
