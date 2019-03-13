@@ -63,16 +63,17 @@ namespace ConsoleClient
             //}
 
 
+            // Works but need to test if user or group do not exist, or if the user is not in the group
+            //groupAccountTasks.RemoveUserFromGroup(username, "Role - IQA");
+            //Console.WriteLine("Removed from Group");
+
+
+
 
             // DOES NOT WORK
 
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
             //Console.WriteLine(lastLogon);
-
-
-
-            //groupAccountTasks.RemoveUserFromGroup("18Ttest", "Role - Student");
-            //Console.WriteLine("Removed from Group");
 
             //groupAccountTasks.AddUsertoGroup("18Ttest","Role - UTC Student");
             //Console.WriteLine("Added to Group");
