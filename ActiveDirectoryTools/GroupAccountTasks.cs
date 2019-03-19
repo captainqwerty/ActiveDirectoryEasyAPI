@@ -40,22 +40,29 @@ namespace ActiveDirectoryTools
 
         public IEnumerable<UserAccount> GetGroupMembers(string groupName)
         {
-            using (var principalContext = new PrincipalContext(ContextType.Domain))
-            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
+            try
             {
-                if (groupResult == null) throw new NoMatchingPrincipalException();
-
-                var groupResultMembers = groupResult.GetMembers();
-
-                var groupMembers = new List<UserAccount>();
-                var userAccountTasks = new UserAccountTasks();
-
-                foreach (var user in groupResultMembers)
+                using (var principalContext = new PrincipalContext(ContextType.Domain))
+                using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
                 {
-                    groupMembers.Add(userAccountTasks.GetUserAccountDetails(user.SamAccountName));
-                }
+                    if (groupResult == null) throw new NoMatchingPrincipalException();
 
-                return groupMembers;
+                    var groupResultMembers = groupResult.GetMembers();
+
+                    var groupMembers = new List<UserAccount>();
+                    var userAccountTasks = new UserAccountTasks();
+
+                    foreach (var user in groupResultMembers)
+                    {
+                        groupMembers.Add(userAccountTasks.GetUserAccountDetails(user.SamAccountName));
+                    }
+
+                    return groupMembers;
+                }
+            }
+            catch (NoMatchingPrincipalException e)
+            {
+                throw new CustomException($"Group {groupName} was not found. Error message: {e.Message}");
             }
         }
 
@@ -72,7 +79,19 @@ namespace ActiveDirectoryTools
             }
             catch (DirectoryServicesCOMException e)
             {
-                // Error
+                throw new CustomException($"Directory Services COM Exception. {e.Message}");
+            }
+            catch (NoMatchingPrincipalException e)
+            {
+                throw new CustomException($"Username not found: {username}. Error Message: {e.Message}");
+            }
+            catch (PrincipalException e)
+            {
+                throw new CustomException($"The user ({username}) already exist in the group. Error Message: {e.Message}");
+            }
+            catch (System.NullReferenceException e)
+            {
+                throw new CustomException($"Please ensure the group exists: {groupName}. Error Message: {e.Message}");
             }
         }
 

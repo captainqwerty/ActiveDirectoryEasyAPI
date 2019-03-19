@@ -47,9 +47,17 @@ namespace ConsoleClient
             //groupAccountTasks.RemoveUserFromGroup(username, "Domain Admins");
             //Console.WriteLine("Removed from Group");
 
+            //groupAccountTasks.AddUsertoGroup(username, "Wireless Student Access");
+            //Console.WriteLine("Added to Group");
 
+            //var membersOfGroup = groupAccountTasks.GetGroupMembers("Wireless Student Accesss");
+            //foreach (var user in membersOfGroup)
+            //{
+            //    Console.WriteLine($"{user.FirstName} {user.LastName}");
+            //}
 
-
+            //groupAccountTasks.CreateGroup("Easy API Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "Created with EasyAPI");
+            //Console.WriteLine("Group created");
 
 
 
@@ -63,7 +71,7 @@ namespace ConsoleClient
             //    Console.WriteLine(lockedAccount.Username);
             //}
 
-            // Renames group but also fails....
+            // Renames group but also fails.... and also leaves the pre windows name as the old name....
             //groupAccountTasks.RenameGroup("Testy", "Wireless Student Access");
             //Console.WriteLine("Group renamed");
 
@@ -77,15 +85,6 @@ namespace ConsoleClient
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
             //Console.WriteLine(lastLogon);
 
-            //groupAccountTasks.AddUsertoGroup("18Ttest","Role - UTC Student");
-            //Console.WriteLine("Added to Group");
-
-            //var membersOfGroup = groupAccountTasks.GetGroupMembers("Domain Admins");
-            //foreach (var user in membersOfGroup)
-            //{
-            //    Console.WriteLine($"{user.FirstName} {user.LastName}");
-            //}
-
             //var group = groupAccountTasks.GetGroupDetails("Domain Admins");
             //Console.WriteLine(group.Name);
             //Console.WriteLine(group.Description);
@@ -93,11 +92,6 @@ namespace ConsoleClient
             //{
             //    Console.WriteLine($"{user.Username}");
             //}
-
-            //groupAccountTasks.CreateGroup("Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "OU=Security Groups,DC=gen2training,DC=co,DC=uk");
-            //Console.WriteLine("Group created");
-
-
 
             Console.ReadLine();
         }
