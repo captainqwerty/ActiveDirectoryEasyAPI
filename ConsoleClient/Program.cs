@@ -16,6 +16,9 @@ namespace ConsoleClient
             Console.WriteLine("Username: ");
             var username = Console.ReadLine();
 
+            Console.WriteLine("Group: ");
+            var groupName = Console.ReadLine();
+
             // SEEMS TO BE WORKING
 
             //var user = userAccountTasks.GetUserAccountDetails(username);
@@ -59,6 +62,13 @@ namespace ConsoleClient
             //groupAccountTasks.CreateGroup("Easy API Test Group", GroupAccountTasks.GroupType.Security, GroupAccountTasks.GroupScope.Universal, "Created with EasyAPI");
             //Console.WriteLine("Group created");
 
+            //var group = groupAccountTasks.GetGroupDetails(groupName);
+            //Console.WriteLine(group.Name);
+            //Console.WriteLine(group.Description);
+            //foreach (var user in group.GroupMembers)
+            //{
+            //    Console.WriteLine($"{user.Username}");
+            //}
 
 
 
@@ -77,21 +87,10 @@ namespace ConsoleClient
 
 
 
-
-
-
             // DOES NOT WORK
 
             //var lastLogon = userAccountTasks.GetLastLogOn(username);
             //Console.WriteLine(lastLogon);
-
-            //var group = groupAccountTasks.GetGroupDetails("Domain Admins");
-            //Console.WriteLine(group.Name);
-            //Console.WriteLine(group.Description);
-            //foreach (var user in group.GroupMembers)
-            //{
-            //    Console.WriteLine($"{user.Username}");
-            //}
 
             Console.ReadLine();
         }

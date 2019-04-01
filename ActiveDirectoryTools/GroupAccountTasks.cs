@@ -21,21 +21,28 @@ namespace ActiveDirectoryTools
 
         public Group GetGroupDetails(string groupName)
         {
-            using (var principalContext = new PrincipalContext(ContextType.Domain))
-            using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
+            var group = new Group(); 
+            try
             {
-                if (groupResult == null) throw new NoMatchingPrincipalException();
-
-                var group = new Group
+                using (var principalContext = new PrincipalContext(ContextType.Domain))
+                using (var groupResult = GroupPrincipal.FindByIdentity(principalContext, groupName))
                 {
-                    Name = groupResult.Name,
-                    Description = groupResult.Description
-                };
+                    if (groupResult == null) throw new NoMatchingPrincipalException();
 
-                group.GroupMembers = GetGroupMembers(groupName);
+                    group = new Group
+                    {
+                        Name = groupResult.Name,
+                        Description = groupResult.Description
+                    };
 
-                return group;
+                    group.GroupMembers = GetGroupMembers(groupName);               
+                }
             }
+            catch(NoMatchingPrincipalException e)
+            {
+                throw new CustomException($"Group {groupName} was not found. Error message: {e.Message}");
+            }
+            return group;
         }
 
         public IEnumerable<UserAccount> GetGroupMembers(string groupName)
