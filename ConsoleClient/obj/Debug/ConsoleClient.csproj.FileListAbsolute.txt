@@ -38,3 +38,13 @@ C:\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.csproj.Co
 C:\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
 C:\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.exe
 C:\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.pdb
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Debug\ConsoleClient.exe.config
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Debug\ConsoleClient.exe
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Debug\ConsoleClient.pdb
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Debug\ActiveDirectoryTools.dll
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\bin\Debug\ActiveDirectoryTools.pdb
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.csprojAssemblyReference.cache
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.csproj.CoreCompileInputs.cache
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.csproj.CopyComplete
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.exe
+C:\Users\Antony Bragg\Documents\GitHub\ActiveDirectoryEasyAPI\ConsoleClient\obj\Debug\ConsoleClient.pdb

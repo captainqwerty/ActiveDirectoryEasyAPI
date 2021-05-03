@@ -49,22 +49,15 @@ namespace ActiveDirectoryTools
         public static List<UserAccount> GetUsersInOU(string organistionalUnit)
         {
             var users = new List<UserAccount>();
+            var user = new UserAccountTasks();
 
-            // create your domain context and define the OU container to search in
-            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, "DOMAINNAME",
-                                                        "OU=SomeOU,dc=YourCompany,dc=com");
+            PrincipalContext ctx = new PrincipalContext(ContextType.Domain, null, organistionalUnit);
 
-            // define a "query-by-example" principal - here, we search for a UserPrincipal (user)
             UserPrincipal qbeUser = new UserPrincipal(ctx);
-
-            // create your principal searcher passing in the QBE principal    
             PrincipalSearcher srch = new PrincipalSearcher(qbeUser);
-
-            // find all matches
             foreach (var found in srch.FindAll())
             {
-                // do whatever here - "found" is of type "Principal" - it could be user, group, computer.....          
-                //users.Add(found.DisplayName);
+                users.Add(user.GetUserAccountDetails(found.SamAccountName));
             }
 
             return users;
