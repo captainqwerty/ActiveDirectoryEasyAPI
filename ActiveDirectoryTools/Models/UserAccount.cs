@@ -24,7 +24,7 @@ namespace ActiveDirectoryTools.Models
 
         public void SetUserPassword(string password, bool expireNow = false)
         {
-
+            UserAccountTasks.SetUsersPassword(Username, password, expireNow);
         }
     }
 }

@@ -17,7 +17,7 @@ namespace ActiveDirectoryTools
         /// <param name="username">The username</param>
         /// <param name="password">Enter the users new password</param>
         /// <param name="expireNow">Expire the password so the user must reset password at next logon?</param>
-        public void SetUsersPassword(string username, string password, bool expireNow = false)
+        public static void SetUsersPassword(string username, string password, bool expireNow = false)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
@@ -35,11 +35,6 @@ namespace ActiveDirectoryTools
                     }
                 }
             }
-        }
-
-        public void SetUsersPassword(UserAccount userAccount, string password, bool expireNow = false)
-        {
-            SetUsersPassword(userAccount.Username, password, expireNow);
         }
 
         /// <summary>
