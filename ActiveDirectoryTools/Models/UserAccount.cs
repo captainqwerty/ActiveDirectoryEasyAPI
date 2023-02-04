@@ -21,5 +21,10 @@ namespace ActiveDirectoryTools.Models
         public DateTime? WhenCreated { get; set; }
         public byte[] ThumbnailPhoto { get; set; }
         public string DistinguishedName { get; set; }
+
+        public void SetUserPassword(string password, bool expireNow = false)
+        {
+
+        }
     }
 }

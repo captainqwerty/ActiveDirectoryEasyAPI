@@ -37,6 +37,11 @@ namespace ActiveDirectoryTools
             }
         }
 
+        public void SetUsersPassword(UserAccount userAccount, string password, bool expireNow = false)
+        {
+            SetUsersPassword(userAccount.Username, password, expireNow);
+        }
+
         /// <summary>
         /// Retrieve the users thumbnail photo.
         /// </summary>

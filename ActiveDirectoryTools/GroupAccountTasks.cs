@@ -32,10 +32,9 @@ namespace ActiveDirectoryTools
                     group = new Group
                     {
                         Name = groupResult.Name,
-                        Description = groupResult.Description
+                        Description = groupResult.Description,
+                        GroupMembers = GetGroupMembers(groupName)
                     };
-
-                    group.GroupMembers = GetGroupMembers(groupName);               
                 }
             }
             catch(NoMatchingPrincipalException e)

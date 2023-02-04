@@ -4,8 +4,6 @@ using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;
 using System.DirectoryServices.ActiveDirectory;
 using System.Linq;
-using System.Text.RegularExpressions;
-using ActiveDirectoryTools.Models;
 
 namespace ActiveDirectoryTools
 {
