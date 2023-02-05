@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ActiveDirectoryTools.Models;
+using System;
 using System.Collections.Generic;
 using System.DirectoryServices;
 using System.DirectoryServices.AccountManagement;

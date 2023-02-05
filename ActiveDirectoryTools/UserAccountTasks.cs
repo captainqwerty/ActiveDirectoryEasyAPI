@@ -16,8 +16,9 @@ namespace ActiveDirectoryTools
         /// </summary>
         /// <param name="username">The username</param>
         /// <param name="password">Enter the users new password</param>
-        /// <param name="expireNow">Expire the password so the user must reset password at next logon?</param>
-        public static void SetUsersPassword(string username, string password, bool expireNow = false)
+        /// <param name="expireNow">Expire the password so the user must reset password at next logon</param>
+        /// <param name="unlockAccount">Unlock the user account</param>
+        public static void SetUsersPassword(string username, string password, bool expireNow = false, bool unlockAccount = true)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
@@ -25,8 +26,11 @@ namespace ActiveDirectoryTools
                 {
                     if (user == null) throw new NoMatchingPrincipalException();
 
-                    user.UnlockAccount();
-
+                    if(unlockAccount)
+                    {
+                        user.UnlockAccount();
+                    }
+                    
                     user.SetPassword(password);
 
                     if (expireNow)
@@ -76,7 +80,7 @@ namespace ActiveDirectoryTools
         /// Unlock a locked user account without resetting their password.
         /// </summary>
         /// <param name="username">Username of the locked account to be unlocked</param>
-        public void UnlockAccount(string username)
+        public static void UnlockAccount(string username)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             {
@@ -127,7 +131,7 @@ namespace ActiveDirectoryTools
         /// </summary>
         /// <param name="username"></param>
         /// <returns>A UserAccount model</returns>
-        public UserAccount GetUserAccountDetails(string username)
+        public static UserAccount GetUserAccountDetails(string username, bool detailed = false)
         {
             using (var principalContext = new PrincipalContext(ContextType.Domain))
             using (var user = UserPrincipal.FindByIdentity(principalContext, username))
@@ -189,7 +193,7 @@ namespace ActiveDirectoryTools
             }
         }
 
-        public void MoveToOrganisationalUnit(string username, string newOrganisationalUnit)
+        public static void MoveToOrganisationalUnit(string username, string newOrganisationalUnit)
         {
             var auditTasks = new AuditTasks();
             if (!auditTasks.DoesDistinguishedNameExist(newOrganisationalUnit)) return;
@@ -205,7 +209,6 @@ namespace ActiveDirectoryTools
 
         public List<UserAccount> GetAllLockedOutAccounts()
         {
-            var accountTools = new UserAccountTasks();
             var lockedUsers = new List<UserAccount>();
 
             using (var context = new PrincipalContext(ContextType.Domain))
@@ -216,7 +219,7 @@ namespace ActiveDirectoryTools
                 {
                     var user = UserPrincipal.FindByIdentity(context, IdentityType.SamAccountName, result.SamAccountName);
                     if (user != null && !user.IsAccountLockedOut()) continue;
-                    lockedUsers.Add(accountTools.GetUserAccountDetails(user.UserPrincipalName));
+                    lockedUsers.Add(UserAccountTasks.GetUserAccountDetails(user.UserPrincipalName));
                 }
 
                 lockedUsers.Sort();

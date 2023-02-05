@@ -26,5 +26,15 @@ namespace ActiveDirectoryTools.Models
         {
             UserAccountTasks.SetUsersPassword(Username, password, expireNow);
         }
+
+        public void UnlockAccount()
+        {
+            UserAccountTasks.UnlockAccount(Username);         
+        }
+
+        public void MoveOrganisationalUnit(string newOrganisationalUnit)
+        {
+            UserAccountTasks.MoveToOrganisationalUnit(Username, newOrganisationalUnit);
+        }
     }
 }
